@@ -1,73 +1,40 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Тестовое задание
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Создать простое веб-приложение на JS, используя современные фреймворки и библиотеки.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+(!) Задание должно быть выполнено с использованием технологии git и опубликовано на GitHub.
 
-## Description
+**Серверная часть:**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. Создать простейший API сервер на Node.js, используя фреймворк на выбор - Koa или Express.
+2. С помощью GET-запросов получить 100 случайных записей, используя [Dog API](https://dog.ceo/dog-api/documentation/). Запрос: GET https://dog.ceo/api/breeds/image/random
 
-## Installation
+Другие эндпоинты использовать запрещается.
 
-```bash
-$ npm install
-```
+1. Распарсить полученный JSON-объект, получить из поля message породу и заголовок как указано в примере ниже:
 
-## Running the app
+![](RackMultipart20211110-4-1agfkfy_html_fce4dca0555a291e.png)
 
-```bash
-# development
-$ npm run start
+1. Собрать все полученные породы и записать их в Mongo коллекцию breeds . Пример записи в Mongo:
 
-# watch mode
-$ npm run start:dev
+![](RackMultipart20211110-4-1agfkfy_html_10989d8aa9b710c.png)
 
-# production mode
-$ npm run start:prod
-```
+1. Создать в MongoDB коллекцию dogs .
+2. Записать полученные c Dog API записи в созданную коллекцию, вместо породы использовать breed, в которой будет записано \_id соответствующей породы из коллекции breeds. Пример записи в Mongo:
 
-## Test
+![](RackMultipart20211110-4-1agfkfy_html_3e0ed137b1829a72.png)
 
-```bash
-# unit tests
-$ npm run test
+1. Создать эндпоинт для отправки записей коллекций dogs и breeds на клиент.
 
-# e2e tests
-$ npm run test:e2e
+**Клиентская часть:**
 
-# test coverage
-$ npm run test:cov
-```
+1. Создать React-приложение, используя create-react-app. При желании можно использовать Vue.
+2. Сверстать простую таблицу, в которой будут отображены записи коллекции dogs со следующими колонками: &quot;Заголовок&quot;, &quot;Картинка&quot;, &quot;Порода&quot;.
 
-## Support
+_ **Будет преимуществом:** _
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+**Бэкенд + фронтенд:**
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+1. Добавить поиск в таблице по заголовку.
+2. Добавить фильтр по породе, используя select.
+3. Добавить пагинацию.

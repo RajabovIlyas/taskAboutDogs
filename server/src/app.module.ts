@@ -1,10 +1,18 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { BreedModule } from './breed/breed.module';
+import { DogModule } from './dog/dog.module';
+import { configModule } from './configure.root';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    configModule,
+    MongooseModule.forRoot(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }),
+    BreedModule,
+    DogModule,
+  ],
 })
 export class AppModule {}
