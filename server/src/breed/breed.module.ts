@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BreedService } from './breed.service';
 import { BreedSchema } from './schemas/breed.schema';
+import { BreedController } from './breed.controller';
 
 @Module({
   imports: [
@@ -9,5 +10,6 @@ import { BreedSchema } from './schemas/breed.schema';
   ],
   providers: [BreedService],
   exports: [BreedService],
+  controllers: [BreedController],
 })
 export class BreedModule {}

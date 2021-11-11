@@ -34,7 +34,7 @@ export class DogService {
     return this.dogModel
       .find(optionFind)
       .limit(limit)
-      .skip((page - 1) * limit)
+      .skip((page>0?page - 1: page) * limit)
       .populate({ path: 'breed' })
       .exec()
       .then(async (result) => ({

@@ -25,4 +25,8 @@ export class BreedService {
   async deleteAll() {
     return this.breedModel.deleteMany();
   }
+
+  async getAll() {
+    return this.breedModel.find().exec();
+  }
 }
